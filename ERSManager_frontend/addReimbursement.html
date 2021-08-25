@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reimbursement Form</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <form id="reimbursementform">
+                <h1>Reimbursement Form</h1>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="amount">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <label class="input-group-text" for="type">Options</label>
+                    <select class="form-select" id="type">
+                      <option selected>Reimbursement Type</option>
+                      <option value="1">Lodging</option>
+                      <option value="2">Food</option>
+                      <option value="3">Travel</option>
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Reimbursement Description</span>
+                    <textarea class="form-control" aria-label="Reimbursement Description" id="description"></textarea>></textarea>
+                  </div>
+                <button class="btn btn-primary mt-3" id="submit">Submit</button>
+    
+            </form>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="js/addReimbursement.js"></script>
+    </body>
