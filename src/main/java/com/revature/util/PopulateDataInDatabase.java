@@ -21,7 +21,7 @@ public class PopulateDataInDatabase {
 		addERSUserRoles();
 		addERSReimbursementStatus();
 		addExampleUsers();
-		addExampleReimbursements();
+		
 	}
 	
 private static void addERSReimbursementTypes() {
@@ -36,9 +36,11 @@ private static void addERSReimbursementTypes() {
 		ERSReimbursementType lodging = new ERSReimbursementType("Lodging");
 		ERSReimbursementType food = new ERSReimbursementType("Food");
 		ERSReimbursementType travel = new ERSReimbursementType("Travel");
+		ERSReimbursementType other = new ERSReimbursementType("Other");
 		session.persist(lodging);
 		session.persist(food);
 		session.persist(travel);
+		session.persist(other);
 		
 		tx.commit();
 		
@@ -89,44 +91,18 @@ private static void addERSReimbursementTypes() {
 		
 		Transaction tx = session.beginTransaction();
 		
-		User employee = new User("Colten", "Murray", "Colten.Murray@revature.net", "employee1", "password");
+		User employee1 = new User("Colten", "Murray", "Colten.Murray@revature.net", "employee1", "password");
+		User employee2 = new User("Bill", "Murray", "Bill.Murray@revature.net", "employee2", "password");
+		User employee3 = new User("Jane", "Doe", "Jane.Doe@revature.net", "employee3", "password");
 		User manager = new User("Bach", "Tran", "Bach.Tran@revature.net", "manager1", "password");
-		session.persist(employee);
+		session.persist(employee1);
+		session.persist(employee2);
+		session.persist(employee3);
 		session.persist(manager);
-		employee.setUserRole(session.get(UserRole.class, 1));
+		employee1.setUserRole(session.get(UserRole.class, 1));
+		employee2.setUserRole(session.get(UserRole.class, 1));
+		employee3.setUserRole(session.get(UserRole.class, 1));
 		manager.setUserRole(session.get(UserRole.class, 2));
-		
-		tx.commit();
-		
-		
-		session.close();
-	}
-	
-	private static void addExampleReimbursements(){
-		
-		Timestamp submitted = new Timestamp(2021, 8, 16, 12, 30, 52, 12);
-		Timestamp resolved = new Timestamp(2021, 8, 17, 3, 32, 36, 37);
-		Blob receipt = null;
-		
-		SessionFactory sf = SessionFactorySingleton.getSessionFactory();
-		
-		Session session = sf.openSession();
-		
-		Transaction tx = session.beginTransaction();
-		
-		ERSReimbursement reimbursement = new ERSReimbursement(submitted, resolved, "Example Reimbursement", receipt);
-		session.persist(reimbursement);
-		reimbursement.setAuthor(session.get(User.class, 1));
-		reimbursement.setResolver(session.get(User.class, 2));
-		reimbursement.setType(session.get(ERSReimbursementType.class, 1));
-		reimbursement.setStatus(session.get(ERSReimbursementStatus.class, 1));
-		
-		ERSReimbursement reimbursementNotPending = new ERSReimbursement(submitted, resolved, "Example Reimbursement not pending", receipt);
-		session.persist(reimbursementNotPending);
-		reimbursementNotPending.setAuthor(session.get(User.class, 1));
-		reimbursementNotPending.setResolver(session.get(User.class, 2));
-		reimbursementNotPending.setType(session.get(ERSReimbursementType.class, 1));
-		reimbursementNotPending.setStatus(session.get(ERSReimbursementStatus.class, 2));
 		
 		tx.commit();
 		

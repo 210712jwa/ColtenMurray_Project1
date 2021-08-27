@@ -6,23 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login to Reimbursements Manager Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="signin.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
+<body class="text-center">
+    <main class="form-signin">
         <form id="loginform">
-            <h1>Login</h1>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input class="form-control" type="text" name="username" id="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input class="form-control" type="text" name="password" id="password">
-            </div>
-            <button class="btn btn-primary mt-3" id="login">Login</button>
-
+          <img class="mb-4" src="assets/inferno.svg" alt="" width="200" height="157">
+          <h1 class="h3 mb-3 fw-normal" style = "font-size:32px" >Reimbursement Pro</h1>
+      
+          <div class="form-floating">
+            <input type="email" class="form-control" id="username" placeholder="name@example.com">
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+      
+          <button id="login" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2021 All rights reserved.</p>
         </form>
-    </div>
+      </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>

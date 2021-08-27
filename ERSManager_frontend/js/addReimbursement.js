@@ -1,7 +1,10 @@
 let submitButton = document.getElementById('submit');
 let amountInput = document.getElementById('amount');
-let descriptionInput = document.getElementById('description');
 let typeInput = document.getElementById('type');
+let fileInput = document.getElementById("fileinput");
+let descriptionInput = document.getElementById('description');
+
+
 
 function submit(event) {
     event.preventDefault(); // this will prevent the default behavior of what happens when 

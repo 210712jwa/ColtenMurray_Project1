@@ -50,15 +50,14 @@ function populateReimbursements(reimbursementsArray) {
         reimbursementAmountTd.innerHTML = "$"+ERSReimbursement.reimbAmount;
 
         let reimbursementSubmittedTd = document.createElement('td');
-        let submitted = new Date(ERSReimbursement.reimbSubmitted)
-        reimbursementSubmittedTd.innerHTML = submitted.getMonth()+1+"/"+submitted.getDate() +"/"+submitted.getFullYear();
+        reimbursementSubmittedTd.innerHTML = new Date(ERSReimbursement.reimbSubmitted).toISOString().slice(0, 10);;
 
         let reimbursementResolvedTd = document.createElement('td');
         if( ERSReimbursement.reimbResolved == null){
             reimbursementResolvedTd.innerHTML = "Not Resolved"
         }
         else{
-            reimbursementResolvedTd.innerHTML = new Date(ERSReimbursement.reimbResolved);
+            reimbursementResolvedTd.innerHTML = new Date(ERSReimbursement.reimbResolved).toISOString().slice(0, 10);;
         }
 
         let reimbursementDescriptionTd = document.createElement('td');
@@ -96,6 +95,23 @@ function populateReimbursements(reimbursementsArray) {
         tbody.appendChild(tr);
     }
 }
+
+function logout(event){
+  
+    event.preventDefault();
+    fetch('http://127.0.0.1:7000/logout', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application.json'
+        },
+    }).then((response) => {
+        if (response.status === 200) {
+            window.location.href = 'index.html';
+        }
+    })
+};
+
 
 reimbursementButton.addEventListener('click', addReimbursement);
 window.addEventListener('load', onLoad);

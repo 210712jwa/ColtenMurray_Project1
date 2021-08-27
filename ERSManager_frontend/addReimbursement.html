@@ -12,7 +12,7 @@
             <form id="reimbursementform">
                 <h1>Reimbursement Form</h1>
                 <div class="input-group mb-3">
-                    <span class="input-group-text">$</span>
+                    <span class="input-group-text">Amount ($)</span>
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="amount">
                     <span class="input-group-text">.00</span>
                   </div>
@@ -23,14 +23,18 @@
                       <option value="1">Lodging</option>
                       <option value="2">Food</option>
                       <option value="3">Travel</option>
+                      <option value="4">Other</option>
                     </select>
                   </div>
-                  <div class="input-group">
+                  <div class="input-group mb-3">
                     <span class="input-group-text">Reimbursement Description</span>
                     <textarea class="form-control" aria-label="Reimbursement Description" id="description"></textarea>></textarea>
                   </div>
+                  <div class="input-group">
+                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                    <input type="file" class="form-control" id="fileinput">
+                  </div>
                 <button class="btn btn-primary mt-3" id="submit">Submit</button>
-    
             </form>
         </div>
     

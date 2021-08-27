@@ -21,8 +21,19 @@ function login(event) {
         body: JSON.stringify(loginInfo)
     }).then((response) => {
         if (response.status === 200) {
-            window.location.href = '/viewships.html';
+            
+            return response.json()
         } else if (response.status === 400) {
+            displayInvalidLogin();
+        }
+    }).then((user) => {
+        if(user.userRole.id === 2){
+            window.location.href = '/manager.html'
+
+         }else if(user.userRole.id === 1){
+            window.location.href = '/viewships.html'
+
+        } else {
             displayInvalidLogin();
         }
     })
@@ -45,8 +56,18 @@ function checkIfUserCurrentlyLoggedIn(event) {
     }).then((response) => {
         if (response.status === 200) {
             window.location.href = '/viewships.html';
+            return response.json()
         }
-    });
+    }).then((user) => {
+        if(user.userRole.id == 2){
+            window.location.href = '/manager.html'
+
+         }else{
+            window.location.href = '/viewships.html'
+
+        }
+
+    })
 }
 
 loginButton.addEventListener('click', login);

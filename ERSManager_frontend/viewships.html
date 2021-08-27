@@ -5,32 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Reimbursements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="table.css" rel="stylesheet">
 </head>
 <body>
+    <div class = "containter-sm">
     <h1>My Reimbursement Requests</h1>
+    <div class="table-responsive">
+        <section id="reimbursements" >
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
 
-    <section id="reimbursements">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Amount</th>
-                    <th>Time Submitted</th>
-                    <th>Time Resolved</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th>Type</th>
-                    <th>Author</th>
-                    <th>Resolver</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </section>
-    <button class="btn btn-primary mt-3" id="requestreimbursement">Request Reimbursement</button>
+                        <th scope="col">ID</th>
+                        <th scope="col"> Amount</th>
+                        <th scope="col">Time Submitted</th>
+                        <th scope="col">Time Resolved</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Resolver</th>
 
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+    
+    <button class="btn btn-primary" id="requestreimbursement">Request Reimbursement</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="js/viewships.js"></script>
 </body>
 </html>

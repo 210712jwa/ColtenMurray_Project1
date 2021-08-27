@@ -1,5 +1,7 @@
 package com.revature.dto;
 
+import java.sql.Blob;
+
 import com.revature.model.ERSReimbursementType;
 import com.revature.model.User;
 
@@ -7,6 +9,7 @@ public class AddReimbursementDTO {
 	private int reimbAmount;
 	private String reimbDescription;
 	private int type;
+	//private Blob receipt;
 	
 	public int getReimbAmount() {
 		return reimbAmount;

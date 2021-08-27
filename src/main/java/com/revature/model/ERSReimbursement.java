@@ -54,17 +54,34 @@ public class ERSReimbursement {
 		super();
 	}
 	
-	public ERSReimbursement(Timestamp submitted, Timestamp resolved, String description, Blob receipt) {
+	
+	
+	
+	
+	
+	public ERSReimbursement(int id, int reimbAmount, String reimbDescription) {
 		super();
-		this.reimbSubmitted = submitted;
-		this.reimbResolved = resolved;
-		this.reimbDescription = description;
-		this.reimbReceipt = receipt;
+		this.id = id;
+		this.reimbAmount = reimbAmount;
+		this.reimbDescription = reimbDescription;
 	}
-	
-	
-	
-	
+
+
+	public ERSReimbursement(int id, int reimbAmount, String reimbDescription, ERSReimbursementStatus status,
+			ERSReimbursementType type) {
+		super();
+		this.id = id;
+		this.reimbAmount = reimbAmount;
+		this.reimbDescription = reimbDescription;
+		this.status = status;
+		this.type = type;
+	}
+
+
+
+
+
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public int getId() {
 		return id;

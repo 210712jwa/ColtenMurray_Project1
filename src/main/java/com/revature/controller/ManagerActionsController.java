@@ -26,7 +26,6 @@ private ERSReimbursementService ERSReimbursementService;
 		HttpSession session = ctx.req.getSession();
 		authService.guard(ctx); 
 		User currentUser = (User) session.getAttribute("currentUser");
-		String userId = ctx.pathParam("userid");
 		String status = ctx.pathParam("status");
 		
 		List<ERSReimbursement> reimbursements = ERSReimbursementService.getAllReimbursementsFromStatus(status);
@@ -39,11 +38,11 @@ private ERSReimbursementService ERSReimbursementService;
 		HttpSession session = ctx.req.getSession();
 		authService.guard(ctx);
 		
-		String userId = ctx.pathParam("userid");
 		String reimbId = ctx.pathParam("reimbid");
+		User currentUser = (User) session.getAttribute("currentUser");
 		
 		EditReimbursementDTO reimbursementEditInfo = ctx.bodyAsClass(EditReimbursementDTO.class);
-		ERSReimbursement editedReimbursement = ERSReimbursementService.editReimbursement(userId, reimbId, reimbursementEditInfo);
+		ERSReimbursement editedReimbursement = ERSReimbursementService.editReimbursement(currentUser, reimbId, reimbursementEditInfo);
 		ctx.json(editedReimbursement);
 		
 	};
@@ -63,9 +62,10 @@ private ERSReimbursementService ERSReimbursementService;
 		
 		app.get("/getAllRequests", getAllRequests);
 		
-		app.get("/user/:userid/filterRequestsByStatus/:status", filterRequestsByStatus);
+		app.get("/filterRequestsByStatus/:status", filterRequestsByStatus);
 		
-		app.put("/user/:userid/processRequest/:reimbid", processRequest);
+		app.put("/processRequest/:reimbid", processRequest);
+		
 	}
 
 }
